@@ -17,30 +17,35 @@ Dossier client
         <div class="container-fluid">
             <h2 class="text-center display-4">Vehicle search API</h2>
             <h5 class="text-center display-5">Please entre search critarea</h5>
+            <h5 class="text-center display-5"> E. homework_6.sw_vehicle_search(755, 128, 252850) </h5>
+            
             <div class="row" style="display: flex; justify-content: center;">
                 <form method="POST" action="{% url 'sw_vehicle_search/search/' %}" class="form-inline">
                     {% csrf_token %}
                     <div class="col-md-2">
                         <div class="input-group">
-                            <input type="text"
+                            <input type="number"
                             class="form-control form-control-lg"
                             name="cargo_capacity"
+                            required
                             placeholder="cargo_capacity">
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="input-group">
-                            <input type="text"
+                            <input type="numer"
                             name="max_speed"
                             class="form-control form-control-lg"
+                            required
                             placeholder="max_speed">
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="input-group">
-                            <input type="text"
+                            <input type="number"
                             name="cost"
                             class="form-control form-control-lg"
+                            required
                             placeholder="cost">
                         </div>
                     </div>

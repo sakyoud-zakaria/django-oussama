@@ -39,19 +39,15 @@ class sw_vehicle_search(TemplateView):
 
         total_net_array = []
 
-        customer_number = CustomerModel.objects.all().count()
-        print("customer_number",customer_number)
 
-        data = {'total_net': len(total_net_array),
-                'currente_date': datetime.now(),
-                'customer_number':customer_number}
+        data = {}
 
         return render(request, self.template_name, data)
     
     def post(self, request, **kwargs):
-        cargo_capacity = request.POST.get("cargo_capacity")
-        max_speed = request.POST.get("max_speed")
-        my_data = request.POST.get("cost")
+        cargo_capacity = int(request.POST.get("cargo_capacity"))
+        max_speed = int(request.POST.get("max_speed"))
+        my_data = int(request.POST.get("cost"))
 
         #result_list =  homework_6.sw_vehicle_search(755, 128, 252850)
         result_list =  homework_6.sw_vehicle_search(cargo_capacity, max_speed, my_data)
