@@ -58,3 +58,34 @@ class sw_vehicle_search(TemplateView):
         context = {"result_list":result_list,
                     "result_list_len":len(result_list)}  #  set your context
         return super(TemplateView, self).render_to_response(context)
+
+
+
+class starship_piloted_species(TemplateView):
+    template_name = 'starship_piloted_species.html'
+
+    def get(self, request, *args, **kwargs):
+
+        data = {}
+
+        return render(request, self.template_name, data)
+    
+    def post(self, request, **kwargs):
+        name = str(request.POST.get("name"))
+
+        #print(starship_piloted_species('Death Star'))
+        #print(starship_piloted_species('Jedi starfighter'))        
+
+        result_list =  homework_6.starship_piloted_species(name)
+
+        print(result_list)
+
+        # do something with your data
+        context = {"result_list":result_list,
+                    "result_list_len":len(result_list)}  #  set your context
+        return super(TemplateView, self).render_to_response(context)
+
+
+
+
+        

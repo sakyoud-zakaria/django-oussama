@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -84,16 +82,11 @@ WSGI_APPLICATION = 'project-opdoo.wsgi.application'
 # import dj_database_url
 # DATABASES = {'default': dj_database_url.config(default='postgres://lozzloiunavmst:538d9dc960fc82fee9bdf299d197c9cf6ba426f440524be74427cc6a98b93194@ec2-52-202-152-4.compute-1.amazonaws.com:5432/dfh10fpm9m6ebe')}
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'database_opdoo',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': 5432,
-        'DISABLE_SERVER_SIDE_CURSORS': True,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase', # This is where you put the name of the db file. 
+                 # If one doesn't exist, it will be created at migration time.
     }
 }
 
@@ -157,9 +150,6 @@ REST_FRAMEWORK = {
 }
 
 
-django_heroku.settings(locals())
-DATABASE_URL = 'postgres://postgres:root@localhost:5432/database_opdoo'
-DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 ############## COMPRESS #####################################
 STATICFILES_FINDERS = (

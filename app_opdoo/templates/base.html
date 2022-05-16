@@ -113,6 +113,17 @@
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-item {% if request.path == '/starship_piloted_species/' %}menu-open{% endif %}">
+                                <a href="{% url 'starship_piloted_species' %}"
+                                   class="nav-link {% if request.path == '/starship_piloted_species/' %}active{% endif %}">
+                                    <i class="nav-icon fa fa-search"></i>
+                                    <p class="text">
+                                        starship_piloted_species
+                                    </p>
+                                </a>
+                            </li>
+
+                            
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
