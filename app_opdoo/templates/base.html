@@ -122,6 +122,38 @@
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-item {% if request.path == '/wear_a_jacket/' %}menu-open{% endif %}">
+                                <a href="{% url 'wear_a_jacket' %}"
+                                   class="nav-link {% if request.path == '/wear_a_jacket/' %}active{% endif %}">
+                                    <i class="nav-icon fa fa-search"></i>
+                                    <p class="text">
+                                        wear_a_jacket
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item {% if request.path == '/past_weather/' %}menu-open{% endif %}">
+                                <a href="{% url 'past_weather' %}"
+                                   class="nav-link {% if request.path == '/past_weather/' %}active{% endif %}">
+                                    <i class="nav-icon fa fa-search"></i>
+                                    <p class="text">
+                                        past_weather
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item {% if request.path == '/cat_language/' %}menu-open{% endif %}">
+                                <a href="{% url 'cat_language' %}"
+                                   class="nav-link {% if request.path == '/cat_language/' %}active{% endif %}">
+                                    <i class="nav-icon fa fa-search"></i>
+                                    <p class="text">
+                                        past_weather
+                                    </p>
+                                </a>
+                            </li>
+
+                            
+
+
+                            
 
                             
                         </ul>

@@ -140,6 +140,7 @@ def wear_a_jacket(us_zip: str) -> bool:
         return False
 
 
+# wear_a_jacket('00653')
 
 # print("################################################################################")
 # print("#     past_weather(days: int, hours: int, minutes: int, us_zip: str) -> bool   #")

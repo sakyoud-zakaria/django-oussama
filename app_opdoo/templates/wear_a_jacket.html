@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Dossier client
+{% endblock title %}
+{% block content %}
+<style>
+    .card-title {
+        font-size: 1.5rem;
+    }
+</style>
+<div class="content-wrapper">
+    <input type="hidden"
+    id="input_session_pos_key"
+    value="{{ request.session.session_pos_key }}">
+    <section class="content">
+        <div class="container-fluid">
+            <h2 class="text-center display-4">Wear a jacket test</h2>
+            <h5 class="text-center display-5">Please entre ZIP code</h5>
+            <h5 class="text-center display-5">  # wear_a_jacket('00653') </h5>
+            <h5 class="text-center display-5">  # wear_a_jacket('00660') </h5>
+            
+            <div class="row" style="display: flex; justify-content: center;">
+                <form method="POST" action="{% url 'wear_a_jacket/search/' %}" class="form-inline" style="width: 60%;">
+                    {% csrf_token %}
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <input type="text"
+                            class="form-control form-control-lg"
+                            name="name"
+                            required
+                            placeholder="starship name">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary btn-block">Search</button>                
+                    </div>
+                </form>
+                
+            </div>
+            <hr>
+            <h2 class="text-center display-4">Search results</h2>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-success"><i class="fas fa-box-open"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">
+                                        {% if result_list == None %} Enter ZIP code {% endif %}
+                                        {% if result_list == True %} You can wear a jacket {% endif %}
+                                        {% if result_list == False %} You can't wear a jacket{% endif %}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.modal-dialog -->
+</div>
+{% endblock content %}

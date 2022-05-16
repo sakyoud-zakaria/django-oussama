@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Dossier client
+{% endblock title %}
+{% block content %}
+<style>
+    .card-title {
+        font-size: 1.5rem;
+    }
+</style>
+<div class="content-wrapper">
+    <input type="hidden"
+    id="input_session_pos_key"
+    value="{{ request.session.session_pos_key }}">
+    <section class="content">
+        <div class="container-fluid">
+            <h2 class="text-center display-4">Past weather API</h2>
+            <h5 class="text-center display-5">Please entre search critarea</h5>
+            <h5 class="text-center display-5"> past_weather(3, 8, 54,"99588") </h5>
+            
+            <div class="row" style="display: flex; justify-content: center;">
+                <form method="POST" action="{% url 'past_weather/search/' %}" class="form-inline">
+                    {% csrf_token %}
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <input type="number"
+                            class="form-control form-control-lg"
+                            name="days"
+                            required
+                            placeholder="days">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <input type="numer"
+                            name="hours"
+                            class="form-control form-control-lg"
+                            required
+                            placeholder="hours">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <input type="number"
+                            name="minutes"
+                            class="form-control form-control-lg"
+                            required
+                            placeholder="minutes">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <input type="text"
+                            name="us_zip"
+                            class="form-control form-control-lg"
+                            required
+                            placeholder="us_zip">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary btn-block">Search</button>                
+                    </div>
+                </form>
+                
+            </div>
+            <hr>
+            <h2 class="text-center display-4">Search results</h2>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-success"><i class="fas fa-box-open"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">
+                                        
+                                        {% if result_list == None %} Enter critareas {% endif %}
+                                        {% if result_list != None %} Past Weather is : {{ result_list }}{% endif %}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.modal-dialog -->
+</div>
+{% endblock content %}
